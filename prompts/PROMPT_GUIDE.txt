@@ -1,0 +1,26 @@
+# Master Prompt Guide
+
+Which prompt to use:
+- Full project: ai_assistant_prompt.txt
+- Quick code: prompt_python_implementation.txt
+- Notebook-ready: prompt_jupyter_notebook.txt
+- Focused analysis: prompt_specific_analysis.txt
+- Research writing: prompt_research_paper_format.txt
+- Dashboard: prompt_dashboard_app.txt
+- Beginner tutorial: prompt_step_by_step_beginner.txt
+
+How to use:
+1. Open a prompt file and copy its contents into your AI assistant.
+2. Optionally, prepend a short context about your dataset (columns, sample size, target variable).
+3. Ask for iterative improvements: "Refine model performance", "Add tests", "Make dashboard responsive".
+
+Tips:
+- Provide a small sample of your real dataset to get the most accurate code.
+- Ask for exact package versions if you need reproducibility.
+- Use the beginner prompt if you want explanations alongside code.
+
+Troubleshooting:
+- If the AI produces errors, paste the stack trace and ask for fixes.
+- If results look unrealistic, request a data validation step and sanity checks.
+
+Enjoy building your Social Media Detox Effect Analyzer!
