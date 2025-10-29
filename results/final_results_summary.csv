@@ -1,0 +1,17 @@
+Analysis,Result
+Dataset Size,500 users
+Number of Features,12 features
+Key Correlation (Days vs Stress),-0.0080
+Key Correlation (Days vs Happiness),0.0635
+Simple Regression R² (Stress),0.0001
+Simple Regression R² (Happiness),0.0040
+Multiple Regression R² (Stress),0.5522
+Multiple Regression R² (Happiness),0.5494
+Optimal K-Means Clusters,2
+Best Silhouette Score,0.2448
+Random Forest R² (Stress),0.4812
+Random Forest R² (Happiness),0.4936
+Random Forest MAE (Stress),0.8953
+Random Forest MAE (Happiness),0.8912
+Most Important Feature (Stress),Daily_Screen_Time(hrs)
+Most Important Feature (Happiness),Daily_Screen_Time(hrs)
