@@ -44,16 +44,16 @@ plt.rcParams['figure.figsize'] = (12, 6)
 plt.rcParams['font.size'] = 10
 
 print("="*70)
-print("🧠 SOCIAL MEDIA DETOX EFFECT ANALYZER")
+print("SOCIAL MEDIA DETOX EFFECT ANALYZER")
 print("="*70)
-print("✅ All libraries imported successfully!")
+print("All libraries imported successfully!")
 print()
 
 # =============================================================================
 # PHASE 1: DATA LOADING & PREPROCESSING
 # =============================================================================
 print("\n" + "="*70)
-print("📥 PHASE 1: DATA LOADING & PREPROCESSING")
+print("PHASE 1: DATA LOADING & PREPROCESSING")
 print("="*70)
 
 # Load the dataset

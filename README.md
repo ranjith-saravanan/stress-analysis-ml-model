@@ -13,6 +13,8 @@ A comprehensive machine learning framework analyzing the relationship between so
 
 ## 🎯 Key Features
 
+- **🌐 Interactive Web GUI**: Beautiful Streamlit dashboard with AI-powered predictions
+- **🔌 REST API Backend**: Flask API for easy integration with other applications
 - **Multi-dimensional Analysis**: Pearson/Spearman correlations, simple/multiple regression
 - **User Segmentation**: K-Means and DBSCAN clustering to identify distinct user phenotypes
 - **Advanced Modeling**: Random Forest regression for predictive analytics
@@ -24,9 +26,10 @@ A comprehensive machine learning framework analyzing the relationship between so
 | Category | Technologies |
 |----------|-------------|
 | **Languages** | Python 3.8+ |
+| **Web Framework** | Streamlit, Flask |
 | **ML Libraries** | scikit-learn, TensorFlow/Keras, statsmodels |
 | **Data Science** | Pandas, NumPy, SciPy |
-| **Visualization** | Matplotlib, Seaborn |
+| **Visualization** | Matplotlib, Seaborn, Plotly |
 | **Algorithms** | Linear Regression, Random Forest, K-Means, DBSCAN, PCA |
 
 ## 📁 Project Structure
@@ -35,9 +38,14 @@ A comprehensive machine learning framework analyzing the relationship between so
 stress-analysis-ml-model/
 │
 ├── README.md                          # Project documentation
+├── GUI_GUIDE.md                       # Guide for running web app and API
 ├── requirements.txt                   # Python dependencies
 ├── stress_analysis.ipynb             # Main analysis notebook
-├── social_media_detox_analyzer.py    # Standalone Python script
+├── run_complete_analysis.py          # Complete automated analysis
+├── app.py                             # Streamlit web application
+├── backend_api.py                     # Flask REST API
+├── run_gui.bat                        # Quick launch script for GUI
+├── run_backend.bat                    # Quick launch script for API
 │
 ├── data/
 │   └── Mental_Health_and_Social_Media_Balance_Dataset.csv
@@ -76,13 +84,40 @@ cd stress-analysis-ml-model
 pip install -r requirements.txt
 ```
 
-3. Run the analysis:
+3. **Run the Web Application (Recommended):**
 ```bash
-# Option 1: Run Jupyter notebook
-jupyter notebook stress_analysis.ipynb
+# Quick launch with batch file
+run_gui.bat
 
-# Option 2: Run Python script
-python social_media_detox_analyzer.py
+# Or manually with Python
+streamlit run app.py
+```
+
+The web app will open at **http://localhost:8501** with features:
+- 🏠 Interactive Dashboard
+- 📊 Data Explorer
+- 🤖 AI Predictor (get personalized predictions!)
+- 📈 Analysis Results
+- 💡 Insights & Recommendations
+
+4. **Or Run the Backend API:**
+```bash
+# Quick launch with batch file
+run_backend.bat
+
+# Or manually with Python
+python backend_api.py
+```
+
+API available at **http://localhost:5000** - See [GUI_GUIDE.md](GUI_GUIDE.md) for API documentation.
+
+5. **Or Run the Complete Analysis:**
+```bash
+# Option 1: Run automated analysis
+python run_complete_analysis.py
+
+# Option 2: Run Jupyter notebook
+jupyter notebook stress_analysis.ipynb
 ```
 
 ## 📊 Dataset
