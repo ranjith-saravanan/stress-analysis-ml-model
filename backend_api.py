@@ -56,7 +56,7 @@ def load_and_train_models():
     rf_happiness = RandomForestRegressor(n_estimators=100, random_state=42)
     rf_happiness.fit(X, y_happiness)
     
-    print("✅ Models trained successfully!")
+    print("Models trained successfully!")
     return df
 
 @app.route('/')
@@ -113,34 +113,34 @@ def predict():
         # Determine stress category
         if stress_pred < 4:
             stress_category = 'Low'
-            stress_emoji = '🟢'
+            stress_indicator = 'low'
         elif stress_pred < 7:
             stress_category = 'Moderate'
-            stress_emoji = '🟡'
+            stress_indicator = 'moderate'
         else:
             stress_category = 'High'
-            stress_emoji = '🔴'
+            stress_indicator = 'high'
         
         # Determine happiness category
         if happiness_pred < 4:
             happiness_category = 'Low'
-            happiness_emoji = '😢'
+            happiness_indicator = 'low'
         elif happiness_pred < 7:
             happiness_category = 'Moderate'
-            happiness_emoji = '😐'
+            happiness_indicator = 'moderate'
         else:
             happiness_category = 'High'
-            happiness_emoji = '😊'
+            happiness_indicator = 'high'
         
         return jsonify({
             'success': True,
             'predictions': {
                 'stress_level': round(stress_pred, 2),
                 'stress_category': stress_category,
-                'stress_emoji': stress_emoji,
+                'stress_indicator': stress_indicator,
                 'happiness_index': round(happiness_pred, 2),
                 'happiness_category': happiness_category,
-                'happiness_emoji': happiness_emoji,
+                'happiness_indicator': happiness_indicator,
                 'wellness_score': round(wellness_score, 2)
             }
         })
@@ -235,7 +235,7 @@ def get_recommendations():
         if screen_time > 8:
             priority_recommendations.append({
                 'category': 'Critical',
-                'icon': '🚨',
+                'icon': 'alert',
                 'title': 'Drastically Reduce Screen Time',
                 'description': f'Your screen time ({screen_time}hrs) is very high. Reduce to under 5 hours daily.',
                 'action': 'Set strict app time limits'
@@ -243,7 +243,7 @@ def get_recommendations():
         elif screen_time > 6:
             recommendations.append({
                 'category': 'High Priority',
-                'icon': '⚠️',
+                'icon': 'warning',
                 'title': 'Reduce Screen Time',
                 'description': f'Your screen time ({screen_time}hrs) is above recommended levels.',
                 'action': 'Gradually reduce by 1-2 hours per week'
@@ -254,7 +254,7 @@ def get_recommendations():
         if sleep_quality < 5:
             priority_recommendations.append({
                 'category': 'Critical',
-                'icon': '😴',
+                'icon': 'sleep',
                 'title': 'Improve Sleep Quality',
                 'description': f'Your sleep quality ({sleep_quality}/10) needs immediate attention.',
                 'action': 'Establish consistent sleep schedule, avoid screens 1hr before bed'
@@ -262,7 +262,7 @@ def get_recommendations():
         elif sleep_quality < 7:
             recommendations.append({
                 'category': 'Important',
-                'icon': '🌙',
+                'icon': 'moon',
                 'title': 'Enhance Sleep Habits',
                 'description': 'Better sleep can reduce stress significantly.',
                 'action': 'Create a relaxing bedtime routine'
@@ -273,7 +273,7 @@ def get_recommendations():
         if exercise_freq < 2:
             priority_recommendations.append({
                 'category': 'High Priority',
-                'icon': '🏃',
+                'icon': 'activity',
                 'title': 'Increase Physical Activity',
                 'description': f'Exercise only {exercise_freq}x/week. Aim for 3-4 sessions.',
                 'action': 'Start with 20-minute walks, gradually increase intensity'
@@ -281,7 +281,7 @@ def get_recommendations():
         elif exercise_freq < 3:
             recommendations.append({
                 'category': 'Moderate',
-                'icon': '💪',
+                'icon': 'fitness',
                 'title': 'Boost Exercise Frequency',
                 'description': 'Regular exercise improves mental health.',
                 'action': 'Add one more workout session per week'
@@ -292,7 +292,7 @@ def get_recommendations():
         if days_without_sm == 0:
             recommendations.append({
                 'category': 'Moderate',
-                'icon': '📱',
+                'icon': 'phone',
                 'title': 'Take Social Media Breaks',
                 'description': 'No breaks from social media detected.',
                 'action': 'Try a weekly 24-hour digital detox'
@@ -302,7 +302,7 @@ def get_recommendations():
         if not priority_recommendations and not recommendations:
             recommendations.append({
                 'category': 'Excellent',
-                'icon': '🎉',
+                'icon': 'success',
                 'title': 'Maintaining Healthy Habits',
                 'description': 'Great job! Your lifestyle habits are well-balanced.',
                 'action': 'Keep up the good work and stay consistent'
@@ -343,13 +343,13 @@ def export_data():
 
 if __name__ == '__main__':
     # Load data and train models on startup
-    print("🔄 Loading data and training models...")
+    print("Loading data and training models...")
     df = load_and_train_models()
     
     # Run Flask app
-    print("\n✅ Backend API is ready!")
-    print("🌐 API running at: http://localhost:5000")
-    print("\n📋 Available endpoints:")
+    print("\nBackend API is ready!")
+    print("API running at: http://localhost:5000")
+    print("\nAvailable endpoints:")
     print("   - GET  /")
     print("   - POST /api/predict")
     print("   - GET  /api/stats")

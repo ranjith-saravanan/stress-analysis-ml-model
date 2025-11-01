@@ -33,30 +33,30 @@ sns.set_palette("husl")
 plt.rcParams['figure.figsize'] = (12, 6)
 plt.rcParams['font.size'] = 10
 
-print("✅ Core libraries imported successfully!")
+print(" Core libraries imported successfully!")
 print(f"Pandas version: {pd.__version__}")
 
 # Load the dataset
-print("\n🔍 Loading dataset...")
+print("\n Loading dataset...")
 df = pd.read_csv('data/Mental_Health_and_Social_Media_Balance_Dataset.csv')
 
-print("🔍 Dataset Overview:")
+print(" Dataset Overview:")
 print(f"Shape: {df.shape}")
 print(f"Columns: {list(df.columns)}")
-print("\n📊 Data Types:")
+print("\n Data Types:")
 print(df.dtypes)
 
-print("\n🔍 First 5 rows:")
+print("\n First 5 rows:")
 print(df.head())
 
-print("\n📈 Basic Statistics:")
+print("\n Basic Statistics:")
 print(df.describe())
 
-print("\n❓ Missing Values:")
+print("\n Missing Values:")
 print(df.isnull().sum())
 
 # Data preprocessing
-print("\n🛠️ Data Preprocessing:")
+print("\n Data Preprocessing:")
 
 # Convert categorical columns
 categorical_cols = ['Gender', 'Social_Media_Platform']
@@ -68,11 +68,11 @@ initial_shape = df.shape
 df.drop_duplicates(inplace=True)
 print(f"Removed {initial_shape[0] - df.shape[0]} duplicate rows")
 
-print(f"\n✅ Final dataset shape: {df.shape}")
-print("✅ Data preprocessing complete!")
+print(f"\n Final dataset shape: {df.shape}")
+print(" Data preprocessing complete!")
 
 # Phase 2: EDA
-print("\n📊 PHASE 2: EXPLORATORY DATA ANALYSIS")
+print("\n PHASE 2: EXPLORATORY DATA ANALYSIS")
 print("="*50)
 
 # Distribution Analysis
@@ -118,10 +118,10 @@ plt.tight_layout()
 plt.savefig('results/02_categorical_distributions.png', dpi=300, bbox_inches='tight')
 plt.show()
 
-print("✅ Distribution analysis complete!")
+print(" Distribution analysis complete!")
 
 # Phase 3: Correlation Analysis
-print("\n🔗 PHASE 3: CORRELATION ANALYSIS")
+print("\n PHASE 3: CORRELATION ANALYSIS")
 print("="*50)
 
 # Calculate correlations between numerical variables
@@ -138,7 +138,7 @@ plt.savefig('results/03_correlation_heatmap.png', dpi=300, bbox_inches='tight')
 plt.show()
 
 # Focus on Key Relationships
-print("\n🎯 Key Correlations with Mental Health Outcomes:")
+print("\n Key Correlations with Mental Health Outcomes:")
 
 # Stress Level correlations
 stress_correlations = correlation_matrix['Stress_Level(1-10)'].sort_values(ascending=False)
@@ -155,7 +155,7 @@ for var, corr in happiness_correlations.items():
         print(".4f")
 
 # Statistical Significance Testing
-print("\n📈 Statistical Significance Tests:")
+print("\n Statistical Significance Tests:")
 
 # Test correlation between Days Without Social Media and Stress
 stress_corr, stress_p = pearsonr(df['Days_Without_Social_Media'], df['Stress_Level(1-10)'])
@@ -172,10 +172,10 @@ screen_stress_corr, screen_stress_p = pearsonr(df['Daily_Screen_Time(hrs)'], df[
 print("Daily Screen Time vs Stress Level:")
 print(f"  Pearson r: {screen_stress_corr:.4f} (p-value: {screen_stress_p:.4e})")
 
-print("✅ Correlation analysis complete!")
+print(" Correlation analysis complete!")
 
 # Phase 4: Regression Analysis
-print("\n📈 PHASE 4: REGRESSION ANALYSIS")
+print("\n PHASE 4: REGRESSION ANALYSIS")
 print("="*50)
 
 X = df[['Days_Without_Social_Media']]
@@ -208,7 +208,7 @@ print(f"  MAE: {mean_absolute_error(y_happiness, happiness_pred):.4f}")
 print(f"  RMSE: {np.sqrt(mean_squared_error(y_happiness, happiness_pred)):.4f}")
 
 # Multiple Regression with Control Variables
-print("\n🔬 Multiple Regression (with confounders):")
+print("\n Multiple Regression (with confounders):")
 
 features = ['Days_Without_Social_Media', 'Daily_Screen_Time(hrs)', 'Sleep_Quality(1-10)',
            'Exercise_Frequency(week)', 'Age']
@@ -255,10 +255,10 @@ plt.tight_layout()
 plt.savefig('results/04_regression_results.png', dpi=300, bbox_inches='tight')
 plt.show()
 
-print("✅ Regression analysis complete!")
+print(" Regression analysis complete!")
 
 # Phase 5: User Segmentation (Clustering)
-print("\n🎯 PHASE 5: USER SEGMENTATION ANALYSIS")
+print("\n PHASE 5: USER SEGMENTATION ANALYSIS")
 print("="*50)
 
 # Select features for clustering
@@ -368,10 +368,10 @@ plt.grid(True, alpha=0.3)
 plt.savefig('results/07_dbscan_clusters.png', dpi=300, bbox_inches='tight')
 plt.show()
 
-print("✅ Clustering analysis complete!")
+print(" Clustering analysis complete!")
 
 # Phase 6: Advanced Modeling (Random Forest)
-print("\n🧠 PHASE 6: ADVANCED MODELING")
+print("\n PHASE 6: ADVANCED MODELING")
 print("="*50)
 
 # Encode categorical variables
@@ -466,10 +466,10 @@ plt.tight_layout()
 plt.savefig('results/09_rf_predictions.png', dpi=300, bbox_inches='tight')
 plt.show()
 
-print("✅ Advanced modeling complete!")
+print(" Advanced modeling complete!")
 
 # Phase 7: Comprehensive Results Summary
-print("\n📊 PHASE 7: COMPREHENSIVE RESULTS SUMMARY")
+print("\n PHASE 7: COMPREHENSIVE RESULTS SUMMARY")
 print("="*60)
 
 results_summary = {
@@ -513,7 +513,7 @@ results_df.to_csv('results/final_results_summary.csv', index=False)
 
 # Key Insights
 print(f"\n{'='*60}")
-print("🎯 KEY INSIGHTS")
+print(" KEY INSIGHTS")
 print('='*60)
 
 print("1. CORRELATION ANALYSIS:")
@@ -537,7 +537,7 @@ print("   • Personalized interventions should consider user phenotypes")
 
 # Save Processed Dataset
 df.to_csv('results/processed_dataset_with_clusters.csv', index=False)
-print("\n💾 All results and processed data saved to 'results/' directory")
+print("\n All results and processed data saved to 'results/' directory")
 
-print("\n✅ COMPREHENSIVE ANALYSIS COMPLETE!")
-print("🎉 Your Social Media Detox Effect Analyzer is ready for portfolio presentation!")
+print("\n COMPREHENSIVE ANALYSIS COMPLETE!")
+print(" Your Social Media Detox Effect Analyzer is ready for portfolio presentation!")

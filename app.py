@@ -21,7 +21,7 @@ import os
 # Page Configuration
 st.set_page_config(
     page_title="Social Media Detox Analyzer",
-    page_icon="🧠",
+    page_icon="",
     layout="wide",
     initial_sidebar_state="expanded"
 )
@@ -171,54 +171,53 @@ def train_models(df):
 # Main App
 def main():
     # Header
-    st.markdown('<h1 class="main-header">🧠 Social Media Detox Effect Analyzer</h1>', unsafe_allow_html=True)
+    st.markdown('<h1 class="main-header"> Social Media Detox Effect Analyzer</h1>', unsafe_allow_html=True)
     st.markdown('<p class="sub-header">AI-Powered Mental Health Insights | Easy-to-Use Interface</p>', unsafe_allow_html=True)
     
     # Quick tip banner
-    st.info("💡 **Tip:** New here? Click '🤖 AI Predictor (Start Here!)' in the sidebar for instant results!")
+    st.info(" **Tip:** New here? Click ' AI Predictor (Start Here!)' in the sidebar for instant results!")
     
     # Sidebar Navigation with helpful descriptions
-    st.sidebar.image("https://img.icons8.com/fluency/96/000000/brain.png", width=100)
-    st.sidebar.title("📱 Navigation")
-    st.sidebar.markdown('<span class="realtime-badge">🔴 LIVE</span>', unsafe_allow_html=True)
+    st.sidebar.title(" Navigation")
+    st.sidebar.markdown('<span class="realtime-badge"> LIVE</span>', unsafe_allow_html=True)
     st.sidebar.markdown("---")
     
     # Add help section
-    with st.sidebar.expander("❓ Need Help? Click Here!"):
+    with st.sidebar.expander(" Need Help? Click Here!"):
         st.markdown("""
         **Getting Started:**
-        1. 🏠 Start with Home Dashboard
-        2. 🤖 Try AI Predictor for instant results
-        3. ⏱️ Track daily with Real-Time Tracker
-        4. 🔮 Plan with Future Predictions
+        1.  Start with Home Dashboard
+        2.  Try AI Predictor for instant results
+        3. ⏱ Track daily with Real-Time Tracker
+        4.  Plan with Future Predictions
         
         **Tips:**
-        - Hover over 🛈 icons for hints
+        - Hover over  icons for hints
         - Use sliders for easy input
         - All data saves automatically
         - Download your progress anytime!
         """)
     
     page = st.sidebar.radio("Choose a page:", [
-        "🏠 Home Dashboard",
-        "🤖 AI Predictor (Start Here!)",
-        "⏱️ Real-Time Tracker",
-        "🔮 Future Predictions",
-        "📊 Data Explorer",
-        "📈 Analysis Results",
-        "💡 Insights & Recommendations"
+        " Home Dashboard",
+        " AI Predictor (Start Here!)",
+        "⏱ Real-Time Tracker",
+        " Future Predictions",
+        " Data Explorer",
+        " Analysis Results",
+        " Insights & Recommendations"
     ], help="Select a page to explore different features")
     
     # Quick tips in sidebar
     st.sidebar.markdown("---")
-    st.sidebar.markdown("### 💡 Quick Tip")
+    st.sidebar.markdown("###  Quick Tip")
     tips = [
-        "🎯 New here? Start with AI Predictor!",
-        "📊 Track daily for best insights",
-        "🔮 Use Future Predictions to plan goals",
-        "� Download your tracking data anytime",
-        "😴 Sleep quality matters most!",
-        "📱 Reduce screen time for lower stress"
+        " New here? Start with AI Predictor!",
+        " Track daily for best insights",
+        " Use Future Predictions to plan goals",
+        " Download your tracking data anytime",
+        " Sleep quality matters most!",
+        " Reduce screen time for lower stress"
     ]
     import random
     st.sidebar.info(random.choice(tips))
@@ -227,49 +226,49 @@ def main():
     df = load_data()
     
     # Map pages
-    if page == "🏠 Home Dashboard":
+    if page == " Home Dashboard":
         show_home_dashboard(df)
-    elif page == "🤖 AI Predictor (Start Here!)":
+    elif page == " AI Predictor (Start Here!)":
         show_ai_predictor(df)
-    elif page == "⏱️ Real-Time Tracker":
+    elif page == "⏱ Real-Time Tracker":
         show_realtime_tracker(df)
-    elif page == "� Future Predictions":
+    elif page == " Future Predictions":
         show_future_predictions(df)
-    elif page == "📊 Data Explorer":
+    elif page == " Data Explorer":
         show_data_explorer(df)
-    elif page == "� Analysis Results":
+    elif page == " Analysis Results":
         show_analysis_results(df)
-    elif page == "💡 Insights & Recommendations":
+    elif page == " Insights & Recommendations":
         show_insights()
 
 def show_home_dashboard(df):
-    st.header("📊 Project Overview")
+    st.header(" Project Overview")
     
     # Welcome message
-    st.success("👋 **Welcome to the Social Media Detox Effect Analyzer!** This AI-powered tool helps you understand and improve your mental health.")
+    st.success(" **Welcome to the Social Media Detox Effect Analyzer!** This AI-powered tool helps you understand and improve your mental health.")
     
     # Quick start guide
-    with st.expander("🚀 NEW HERE? Start Here! (Click to expand)", expanded=True):
+    with st.expander(" NEW HERE? Start Here! (Click to expand)", expanded=True):
         st.markdown("""
-        ### 📝 Quick Start Guide
+        ###  Quick Start Guide
         
         **For First-Time Users:**
-        1. 🤖 Click "**AI Predictor (Start Here!)**" in the sidebar
-        2. ✏️ Fill in your information (takes 1 minute!)
-        3. 🎯 Get instant predictions about your stress & happiness
-        4. 💡 Read personalized recommendations
+        1.  Click "**AI Predictor (Start Here!)**" in the sidebar
+        2.  Fill in your information (takes 1 minute!)
+        3.  Get instant predictions about your stress & happiness
+        4.  Read personalized recommendations
         
         **For Daily Tracking:**
-        - ⏱️ Use "**Real-Time Tracker**" to log daily progress
-        - 📊 See your improvement over time
-        - 📥 Download your tracking data
+        - ⏱ Use "**Real-Time Tracker**" to log daily progress
+        -  See your improvement over time
+        -  Download your tracking data
         
         **For Planning Ahead:**
-        - 🔮 Try "**Future Predictions**" to test lifestyle changes
-        - 📈 See 4-week improvement timeline
-        - 🎯 Get action steps to reach your goals
+        -  Try "**Future Predictions**" to test lifestyle changes
+        -  See 4-week improvement timeline
+        -  Get action steps to reach your goals
         
-        **👈 Choose a page from the sidebar to get started!**
+        ** Choose a page from the sidebar to get started!**
         """)
     
     st.markdown("---")
@@ -315,32 +314,32 @@ def show_home_dashboard(df):
     col1, col2 = st.columns([1, 1])
     
     with col1:
-        st.subheader("📋 Dataset Summary")
+        st.subheader(" Dataset Summary")
         st.write(f"**Total Records:** {len(df)}")
         st.write(f"**Features:** {df.shape[1]}")
         st.write(f"**Missing Values:** {df.isnull().sum().sum()}")
         
-        st.subheader("📊 Quick Statistics")
+        st.subheader(" Quick Statistics")
         numeric_cols = df.select_dtypes(include=[np.number]).columns
         st.dataframe(df[numeric_cols].describe().round(2), use_container_width=True)
     
     with col2:
-        st.subheader("🎯 Key Findings")
+        st.subheader(" Key Findings")
         st.markdown("""
         <div class="insight-box">
-            <h4>🚨 Major Discovery</h4>
+            <h4> Major Discovery</h4>
             <p><strong>Screen time (0.74 correlation)</strong> is <strong>90x MORE important</strong> 
             than social media abstinence (-0.008) for mental health!</p>
         </div>
         
         <div class="insight-box">
-            <h4>👥 Two User Phenotypes</h4>
+            <h4> Two User Phenotypes</h4>
             <p><strong>Cluster 0:</strong> High-stress users (6.85hrs screen time)<br>
             <strong>Cluster 1:</strong> Well-balanced users (4.29hrs screen time)</p>
         </div>
         
         <div class="insight-box">
-            <h4>😴 Sleep Quality Matters</h4>
+            <h4> Sleep Quality Matters</h4>
             <p><strong>-59%</strong> correlation with stress<br>
             <strong>+68%</strong> correlation with happiness</p>
         </div>
@@ -348,7 +347,7 @@ def show_home_dashboard(df):
     
     # Visualizations
     st.markdown("---")
-    st.subheader("📈 Distribution Overview")
+    st.subheader(" Distribution Overview")
     
     col1, col2 = st.columns(2)
     
@@ -367,10 +366,10 @@ def show_home_dashboard(df):
         st.plotly_chart(fig, use_container_width=True)
 
 def show_data_explorer(df):
-    st.header("📊 Interactive Data Explorer")
+    st.header(" Interactive Data Explorer")
     
     # Filters
-    st.sidebar.subheader("🔍 Filters")
+    st.sidebar.subheader(" Filters")
     
     age_range = st.sidebar.slider("Age Range", 
                                    int(df['Age'].min()), 
@@ -398,7 +397,7 @@ def show_data_explorer(df):
     st.write(f"**Filtered Records:** {len(filtered_df)} / {len(df)}")
     
     # Tabs for different views
-    tab1, tab2, tab3 = st.tabs(["📋 Data Table", "📊 Correlations", "🎨 Visualizations"])
+    tab1, tab2, tab3 = st.tabs([" Data Table", " Correlations", " Visualizations"])
     
     with tab1:
         st.dataframe(filtered_df, use_container_width=True, height=400)
@@ -406,7 +405,7 @@ def show_data_explorer(df):
         # Download button
         csv = filtered_df.to_csv(index=False)
         st.download_button(
-            label="📥 Download Filtered Data (CSV)",
+            label=" Download Filtered Data (CSV)",
             data=csv,
             file_name="filtered_data.csv",
             mime="text/csv"
@@ -444,20 +443,20 @@ def show_data_explorer(df):
             st.plotly_chart(fig, use_container_width=True)
 
 def show_ai_predictor(df):
-    st.header("🤖 AI-Powered Mental Health Predictor")
+    st.header(" AI-Powered Mental Health Predictor")
     
     # Welcome message for new users
-    st.success("👋 **Welcome!** This is the easiest way to get started. Just fill in your information below and get instant predictions!")
+    st.success(" **Welcome!** This is the easiest way to get started. Just fill in your information below and get instant predictions!")
     
     # Instructions
-    with st.expander("📖 How to Use This Tool (Click to expand)", expanded=False):
+    with st.expander(" How to Use This Tool (Click to expand)", expanded=False):
         st.markdown("""
         **Simple Steps:**
-        1. ✏️ Fill in your personal information (left side)
-        2. 📱 Adjust the lifestyle sliders (right side) 
-        3. 🎯 Click the big "Predict" button at bottom
-        4. 🎉 Get instant stress & happiness predictions!
-        5. 💡 Read personalized recommendations
+        1.  Fill in your personal information (left side)
+        2.  Adjust the lifestyle sliders (right side) 
+        3.  Click the big "Predict" button at bottom
+        4.  Get instant stress & happiness predictions!
+        5.  Read personalized recommendations
         
         **Pro Tip:** Be honest with your inputs for accurate results!
         """)
@@ -465,16 +464,16 @@ def show_ai_predictor(df):
     st.write("Enter your information to get personalized stress and happiness predictions!")
     
     # Train models
-    with st.spinner("🔄 Training AI models..."):
+    with st.spinner(" Training AI models..."):
         rf_stress, rf_happiness, le_gender, le_platform = train_models(df)
     
-    st.success("✅ Models trained successfully!")
+    st.success(" Models trained successfully!")
     
     # Input Form
     col1, col2 = st.columns(2)
     
     with col1:
-        st.subheader("👤 Personal Information")
+        st.subheader(" Personal Information")
         age = st.slider("Age", 16, 50, 30, help="Your current age")
         gender = st.selectbox("Gender", df['Gender'].unique() if 'Gender' in df.columns else ['Male', 'Female', 'Other'],
                              help="Select your gender")
@@ -483,15 +482,15 @@ def show_ai_predictor(df):
                                help="Which platform do you use most?")
     
     with col2:
-        st.subheader("📱 Lifestyle Factors")
-        st.caption("💡 Tip: Move the sliders below to match your typical day")
-        screen_time = st.slider("📱 Daily Screen Time (hours)", 1.0, 12.0, 5.5, 0.5,
+        st.subheader(" Lifestyle Factors")
+        st.caption(" Tip: Move the sliders below to match your typical day")
+        screen_time = st.slider(" Daily Screen Time (hours)", 1.0, 12.0, 5.5, 0.5,
                                help="Total hours spent on screens (phone, computer, TV)")
-        sleep_quality = st.slider("😴 Sleep Quality (1-10)", 1, 10, 7,
+        sleep_quality = st.slider(" Sleep Quality (1-10)", 1, 10, 7,
                                  help="How well do you sleep? 1=Very poor, 10=Excellent")
-        days_without_sm = st.slider("📵 Days Without Social Media (per month)", 0, 30, 0,
+        days_without_sm = st.slider(" Days Without Social Media (per month)", 0, 30, 0,
                                    help="How many days per month do you take a complete break?")
-        exercise_freq = st.slider("🏃 Exercise Frequency (times/week)", 0, 7, 2,
+        exercise_freq = st.slider(" Exercise Frequency (times/week)", 0, 7, 2,
                                  help="How many times per week do you exercise?")
     
     st.markdown("---")
@@ -499,7 +498,7 @@ def show_ai_predictor(df):
     # Prediction button with more emphasis
     col_btn1, col_btn2, col_btn3 = st.columns([1, 2, 1])
     with col_btn2:
-        predict_btn = st.button("🔮 Predict My Mental Health Status", use_container_width=True, type="primary")
+        predict_btn = st.button(" Predict My Mental Health Status", use_container_width=True, type="primary")
     
     if predict_btn:
         # Prepare input
@@ -516,13 +515,13 @@ def show_ai_predictor(df):
         # Display results with celebration
         st.balloons()
         st.markdown("---")
-        st.subheader("🎯 Your Personalized Results")
-        st.caption("✨ Here's what our AI predicts based on your lifestyle!")
+        st.subheader(" Your Personalized Results")
+        st.caption(" Here's what our AI predicts based on your lifestyle!")
         
         col1, col2, col3 = st.columns(3)
         
         with col1:
-            stress_color = "🟢" if stress_pred < 4 else "🟡" if stress_pred < 7 else "🔴"
+            stress_color = "" if stress_pred < 4 else "" if stress_pred < 7 else ""
             st.markdown(f"""
             <div class="metric-card" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
                 <h2>{stress_color}</h2>
@@ -532,7 +531,7 @@ def show_ai_predictor(df):
             """, unsafe_allow_html=True)
         
         with col2:
-            happiness_color = "😢" if happiness_pred < 4 else "😐" if happiness_pred < 7 else "😊"
+            happiness_color = "" if happiness_pred < 4 else "" if happiness_pred < 7 else ""
             st.markdown(f"""
             <div class="metric-card" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
                 <h2>{happiness_color}</h2>
@@ -545,7 +544,7 @@ def show_ai_predictor(df):
             overall_score = (10 - stress_pred + happiness_pred) / 2
             st.markdown(f"""
             <div class="metric-card" style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);">
-                <h2>⭐</h2>
+                <h2></h2>
                 <h3>{overall_score:.1f}/10</h3>
                 <p>Overall Wellness Score</p>
             </div>
@@ -553,51 +552,51 @@ def show_ai_predictor(df):
         
         # Recommendations
         st.markdown("---")
-        st.subheader("💡 Personalized Recommendations")
+        st.subheader(" Personalized Recommendations")
         
         recommendations = []
         if screen_time > 6:
-            recommendations.append("🚨 **Reduce screen time**: Your screen time is high. Try to limit it to under 5 hours daily.")
+            recommendations.append(" **Reduce screen time**: Your screen time is high. Try to limit it to under 5 hours daily.")
         if sleep_quality < 6:
-            recommendations.append("😴 **Improve sleep quality**: Better sleep can significantly reduce stress and increase happiness.")
+            recommendations.append(" **Improve sleep quality**: Better sleep can significantly reduce stress and increase happiness.")
         if exercise_freq < 3:
-            recommendations.append("🏃 **Exercise more**: Aim for at least 3-4 sessions per week for better mental health.")
+            recommendations.append(" **Exercise more**: Aim for at least 3-4 sessions per week for better mental health.")
         if days_without_sm == 0:
-            recommendations.append("📱 **Take social media breaks**: Try a weekly digital detox day.")
+            recommendations.append(" **Take social media breaks**: Try a weekly digital detox day.")
         
         if recommendations:
             for rec in recommendations:
                 st.markdown(f"<div class='insight-box'>{rec}</div>", unsafe_allow_html=True)
         else:
-            st.success("🎉 Great job! You're maintaining healthy habits!")
+            st.success(" Great job! You're maintaining healthy habits!")
 
 def show_analysis_results(df):
-    st.header("📈 Comprehensive Analysis Results")
+    st.header(" Comprehensive Analysis Results")
     
     # Load visualizations if they exist
     results_path = "results"
     
-    tab1, tab2, tab3 = st.tabs(["📊 Key Metrics", "🎨 Visualizations", "📋 Detailed Results"])
+    tab1, tab2, tab3 = st.tabs([" Key Metrics", " Visualizations", " Detailed Results"])
     
     with tab1:
         col1, col2 = st.columns(2)
         
         with col1:
-            st.subheader("🔗 Correlation Analysis")
+            st.subheader(" Correlation Analysis")
             st.metric("Screen Time ↔ Stress", "0.74", "Strong Positive")
             st.metric("Screen Time ↔ Happiness", "-0.71", "Strong Negative")
             st.metric("Sleep ↔ Stress", "-0.58", "Moderate Negative")
             st.metric("Sleep ↔ Happiness", "0.68", "Moderate Positive")
         
         with col2:
-            st.subheader("🤖 Model Performance")
+            st.subheader(" Model Performance")
             st.metric("Multiple Regression R²", "55.2%", "Stress Prediction")
             st.metric("Multiple Regression R²", "54.9%", "Happiness Prediction")
             st.metric("Random Forest R²", "48.1%", "Stress Model")
             st.metric("Random Forest R²", "49.4%", "Happiness Model")
     
     with tab2:
-        st.subheader("📊 Generated Visualizations")
+        st.subheader(" Generated Visualizations")
         
         viz_files = [
             "01_distributions.png",
@@ -623,7 +622,7 @@ def show_analysis_results(df):
                     st.image(f"{results_path}/{viz_files[i+1]}", use_container_width=True)
     
     with tab3:
-        st.subheader("📋 Detailed Results Summary")
+        st.subheader(" Detailed Results Summary")
         
         if os.path.exists(f"{results_path}/final_results_summary.csv"):
             results_df = pd.read_csv(f"{results_path}/final_results_summary.csv")
@@ -632,16 +631,16 @@ def show_analysis_results(df):
             st.info("Run the complete analysis to generate detailed results.")
 
 def show_insights():
-    st.header("💡 Key Insights & Recommendations")
+    st.header(" Key Insights & Recommendations")
     
     col1, col2 = st.columns([2, 1])
     
     with col1:
-        st.subheader("🔍 Major Findings")
+        st.subheader(" Major Findings")
         
         st.markdown("""
         <div class="insight-box">
-            <h4>1. Screen Time is the Critical Factor 🚨</h4>
+            <h4>1. Screen Time is the Critical Factor </h4>
             <ul>
                 <li><strong class="status-critical">0.74 correlation</strong> with stress (extremely strong)</li>
                 <li><strong>90x more important</strong> than social media abstinence</li>
@@ -650,7 +649,7 @@ def show_insights():
         </div>
         
         <div class="insight-box">
-            <h4>2. Two Distinct User Phenotypes 👥</h4>
+            <h4>2. Two Distinct User Phenotypes </h4>
             <ul>
                 <li><strong>Cluster 0 (High-stress):</strong> 6.85hrs screen time, poor sleep (5.22/10), stress 7.74/10</li>
                 <li><strong>Cluster 1 (Well-balanced):</strong> 4.29hrs screen time, good sleep (7.32/10), stress 5.57/10</li>
@@ -659,7 +658,7 @@ def show_insights():
         </div>
         
         <div class="insight-box">
-            <h4>3. Sleep Quality Matters Significantly 😴</h4>
+            <h4>3. Sleep Quality Matters Significantly </h4>
             <ul>
                 <li><strong class="status-good">-59%</strong> correlation with stress</li>
                 <li><strong class="status-good">+68%</strong> correlation with happiness</li>
@@ -668,7 +667,7 @@ def show_insights():
         </div>
         
         <div class="insight-box">
-            <h4>4. Social Media Abstinence Has Minimal Direct Effect 📱</h4>
+            <h4>4. Social Media Abstinence Has Minimal Direct Effect </h4>
             <ul>
                 <li>Only <strong>-0.8%</strong> correlation with stress</li>
                 <li>Only <strong>+6.4%</strong> correlation with happiness</li>
@@ -679,52 +678,52 @@ def show_insights():
         """, unsafe_allow_html=True)
     
     with col2:
-        st.subheader("🎯 Action Plan")
+        st.subheader(" Action Plan")
         
         st.markdown("""
         ### Daily Habits
         - ⏰ Limit screen time to 4-5 hours
-        - 😴 Get 7-8 hours quality sleep
-        - 🏃 Exercise 3-4 times/week
-        - 🧘 Practice digital detox (1 day/week)
+        -  Get 7-8 hours quality sleep
+        -  Exercise 3-4 times/week
+        -  Practice digital detox (1 day/week)
         
         ### Mental Health Tracking
-        - 📊 Monitor stress levels
-        - 😊 Track happiness daily
-        - 📈 Review progress weekly
+        -  Monitor stress levels
+        -  Track happiness daily
+        -  Review progress weekly
         
         ### Intervention Strategies
-        - 🔔 Set screen time limits
-        - 🌙 Establish sleep routine
-        - 🤝 Increase social interaction
-        - 🎯 Set realistic goals
+        -  Set screen time limits
+        -  Establish sleep routine
+        -  Increase social interaction
+        -  Set realistic goals
         """)
         
         st.markdown("---")
-        st.info("💡 **Remember**: Mental health is multifaceted. A holistic approach addressing screen time, sleep, exercise, and social connections is most effective!")
+        st.info(" **Remember**: Mental health is multifaceted. A holistic approach addressing screen time, sleep, exercise, and social connections is most effective!")
 
 def show_realtime_tracker(df):
-    st.header("⏱️ Real-Time Mental Health Tracker")
-    st.markdown('<span class="realtime-badge">🔴 LIVE TRACKING</span>', unsafe_allow_html=True)
+    st.header("⏱ Real-Time Mental Health Tracker")
+    st.markdown('<span class="realtime-badge"> LIVE TRACKING</span>', unsafe_allow_html=True)
     st.markdown("---")
     
     # Clear instructions
-    st.info("📊 **Track your daily mental health and see trends over time!** Enter today's data below and watch your progress.")
+    st.info(" **Track your daily mental health and see trends over time!** Enter today's data below and watch your progress.")
     
-    with st.expander("📖 Quick Guide - How Tracking Works"):
+    with st.expander(" Quick Guide - How Tracking Works"):
         st.markdown("""
         **It's Easy!**
-        1. 📝 Fill in today's information (left side)
-        2. 💾 Click "Save Entry" button
-        3. 🎈 See success message and balloons!
-        4. 📊 Your charts update automatically (right side)
-        5. 📥 Download your data anytime
+        1.  Fill in today's information (left side)
+        2.  Click "Save Entry" button
+        3.  See success message and balloons!
+        4.  Your charts update automatically (right side)
+        5.  Download your data anytime
         
         **Why track daily?**
-        - 📈 See your improvement over time
-        - 🎯 Identify what works for you
-        - 💪 Stay motivated with visual progress
-        - 📊 Make data-driven decisions
+        -  See your improvement over time
+        -  Identify what works for you
+        -  Stay motivated with visual progress
+        -  Make data-driven decisions
         
         **Pro Tip:** Track at the same time each day for consistency!
         """)
@@ -747,34 +746,34 @@ def show_realtime_tracker(df):
     col1, col2 = st.columns([1, 1])
     
     with col1:
-        st.subheader("📝 Today's Entry")
-        st.caption("💡 Move the sliders to match how you feel right now")
+        st.subheader(" Today's Entry")
+        st.caption(" Move the sliders to match how you feel right now")
         
         # Real-time input form
         with st.form("daily_tracker"):
             st.write("**How's your day going?**")
             
-            screen_time = st.slider("📱 Screen Time Today (hours)", 0.0, 12.0, 
+            screen_time = st.slider(" Screen Time Today (hours)", 0.0, 12.0, 
                                    float(st.session_state.daily_entry['screen_time']), 0.5,
                                    help="Total hours on phone, computer, TV")
             
-            sleep_quality = st.slider("😴 Sleep Quality Last Night (1-10)", 1, 10, 
+            sleep_quality = st.slider(" Sleep Quality Last Night (1-10)", 1, 10, 
                                      st.session_state.daily_entry['sleep_quality'],
                                      help="How well did you sleep? 1=Terrible, 10=Perfect")
             
-            stress_level = st.slider("😰 Stress Level Right Now (1-10)", 1, 10, 
+            stress_level = st.slider(" Stress Level Right Now (1-10)", 1, 10, 
                                     st.session_state.daily_entry['stress_level'],
                                     help="How stressed do you feel? 1=Calm, 10=Very stressed")
             
-            happiness = st.slider("😊 Happiness Level Right Now (1-10)", 1, 10, 
+            happiness = st.slider(" Happiness Level Right Now (1-10)", 1, 10, 
                                  st.session_state.daily_entry['happiness'],
                                  help="How happy are you? 1=Very unhappy, 10=Very happy")
             
-            exercise = st.slider("🏃 Exercise Today (minutes)", 0, 120, 
+            exercise = st.slider(" Exercise Today (minutes)", 0, 120, 
                                st.session_state.daily_entry['exercise'] * 30, 15,
                                help="Total minutes of physical activity")
             
-            social_media_breaks = st.number_input("📵 Social Media Breaks Taken", 
+            social_media_breaks = st.number_input(" Social Media Breaks Taken", 
                                                  min_value=0, max_value=10, 
                                                  value=st.session_state.daily_entry['social_media_breaks'],
                                                  help="How many times did you take a break from social media?")
@@ -782,10 +781,10 @@ def show_realtime_tracker(df):
             st.markdown("---")
             col_a, col_b = st.columns(2)
             with col_a:
-                submit = st.form_submit_button("💾 Save Entry", use_container_width=True, type="primary",
+                submit = st.form_submit_button(" Save Entry", use_container_width=True, type="primary",
                                               help="Click to save your entry!")
             with col_b:
-                reset = st.form_submit_button("🔄 Clear History", use_container_width=True,
+                reset = st.form_submit_button(" Clear History", use_container_width=True,
                                              help="Delete all saved entries")
         
         if submit:
@@ -800,18 +799,18 @@ def show_realtime_tracker(df):
             }
             st.session_state.tracking_data.append(entry)
             st.session_state.daily_entry = entry
-            st.success("✅ Entry saved successfully! Check the right side for your progress →")
+            st.success(" Entry saved successfully! Check the right side for your progress →")
             st.balloons()
         
         if reset:
             st.session_state.tracking_data = []
-            st.info("🔄 All tracking data has been cleared. Start fresh below!")
+            st.info(" All tracking data has been cleared. Start fresh below!")
     
     with col2:
-        st.subheader("📊 Your Progress Dashboard")
+        st.subheader(" Your Progress Dashboard")
         
         if len(st.session_state.tracking_data) > 0:
-            st.caption("🎯 Your tracking data updates here automatically!")
+            st.caption(" Your tracking data updates here automatically!")
             
             # Convert to DataFrame
             tracking_df = pd.DataFrame(st.session_state.tracking_data)
@@ -819,27 +818,23 @@ def show_realtime_tracker(df):
             # Current status
             latest = st.session_state.tracking_data[-1]
             
-            st.markdown(f"**📅 Total Entries:** {len(st.session_state.tracking_data)} days tracked")
+            st.markdown(f"** Total Entries:** {len(st.session_state.tracking_data)} days tracked")
             st.markdown("---")
             
             # Status cards
             col_a, col_b = st.columns(2)
             
             with col_a:
-                stress_emoji = "🟢" if latest['stress_level'] < 4 else "🟡" if latest['stress_level'] < 7 else "🔴"
                 st.markdown(f"""
                 <div class="metric-card" style="background: linear-gradient(135deg, #00d2ff 0%, #3a47d5 100%);">
-                    <h2>{stress_emoji}</h2>
                     <h3>{latest['stress_level']}/10</h3>
                     <p>Current Stress</p>
                 </div>
                 """, unsafe_allow_html=True)
             
             with col_b:
-                happy_emoji = "😢" if latest['happiness'] < 4 else "😐" if latest['happiness'] < 7 else "😊"
                 st.markdown(f"""
                 <div class="metric-card" style="background: linear-gradient(135deg, #ff0080 0%, #ff8c00 100%);">
-                    <h2>{happy_emoji}</h2>
                     <h3>{latest['happiness']}/10</h3>
                     <p>Current Happiness</p>
                 </div>
@@ -849,29 +844,29 @@ def show_realtime_tracker(df):
             
             # Trend analysis
             if len(tracking_df) >= 2:
-                st.write("**📈 Your Trends:**")
+                st.write("** Your Trends:**")
                 
                 stress_trend = tracking_df['stress_level'].iloc[-1] - tracking_df['stress_level'].iloc[0]
                 happiness_trend = tracking_df['happiness'].iloc[-1] - tracking_df['happiness'].iloc[0]
                 
                 if stress_trend < 0:
-                    st.success(f"✅ Stress decreased by {abs(stress_trend):.1f} points")
+                    st.success(f" Stress decreased by {abs(stress_trend):.1f} points")
                 elif stress_trend > 0:
-                    st.warning(f"⚠️ Stress increased by {stress_trend:.1f} points")
+                    st.warning(f" Stress increased by {stress_trend:.1f} points")
                 else:
-                    st.info("➡️ Stress level stable")
+                    st.info(" Stress level stable")
                 
                 if happiness_trend > 0:
-                    st.success(f"✅ Happiness increased by {happiness_trend:.1f} points")
+                    st.success(f" Happiness increased by {happiness_trend:.1f} points")
                 elif happiness_trend < 0:
-                    st.warning(f"⚠️ Happiness decreased by {abs(happiness_trend):.1f} points")
+                    st.warning(f" Happiness decreased by {abs(happiness_trend):.1f} points")
                 else:
-                    st.info("➡️ Happiness level stable")
+                    st.info(" Happiness level stable")
             
             # Progress chart
             if len(tracking_df) >= 2:
                 st.markdown("---")
-                st.write("**📊 Progress Over Time:**")
+                st.write("** Progress Over Time:**")
                 
                 fig = go.Figure()
                 fig.add_trace(go.Scatter(x=list(range(len(tracking_df))), y=tracking_df['stress_level'],
@@ -892,7 +887,7 @@ def show_realtime_tracker(df):
             st.markdown("---")
             csv = tracking_df.to_csv(index=False)
             st.download_button(
-                label="📥 Download Your Tracking Data (CSV)",
+                label=" Download Your Tracking Data (CSV)",
                 data=csv,
                 file_name=f"mental_health_tracking_{pd.Timestamp.now().strftime('%Y%m%d')}.csv",
                 mime="text/csv",
@@ -900,23 +895,23 @@ def show_realtime_tracker(df):
                 help="Download your data to keep permanent records or analyze in Excel"
             )
         else:
-            st.info("👈 **Get Started!** Fill out the form on the left and click 'Save Entry'")
+            st.info(" **Get Started!** Fill out the form on the left and click 'Save Entry'")
             st.markdown("""
             **What you'll see here once you start tracking:**
-            - 📊 Your current stress and happiness levels
-            - 📈 Trend charts showing improvement over time
-            - ⬆️⬇️ Arrows showing if you're getting better or worse
-            - 💾 Download button for your complete history
+            -  Your current stress and happiness levels
+            -  Trend charts showing improvement over time
+            -  Arrows showing if you're getting better or worse
+            -  Download button for your complete history
             
             **Start tracking now to see your progress!**
             """)
 
 def show_future_predictions(df):
-    st.header("🔮 Future Mental Health Predictions")
-    st.success("🎯 **What if...?** See how lifestyle changes will impact your mental health!")
+    st.header(" Future Mental Health Predictions")
+    st.success(" **What if...?** See how lifestyle changes will impact your mental health!")
     
     # Clear instructions
-    with st.expander("📖 How This Works - Click to Learn"):
+    with st.expander(" How This Works - Click to Learn"):
         st.markdown("""
         **Simple 3-Step Process:**
         
@@ -930,11 +925,11 @@ def show_future_predictions(df):
         - See what happens if you make those changes!
         
         **You'll Get:**
-        - 📊 Before/After comparison
-        - 📈 Improvement predictions
-        - 💡 Personalized action steps
-        - 📅 4-week timeline
-        - 🎯 Impact rating
+        -  Before/After comparison
+        -  Improvement predictions
+        -  Personalized action steps
+        -  4-week timeline
+        -  Impact rating
         
         **Example:** "What if I reduce screen time from 8hrs to 4hrs?"
         → AI shows you the predicted stress reduction!
@@ -943,14 +938,14 @@ def show_future_predictions(df):
     st.markdown("---")
     
     # Train models
-    with st.spinner("🔄 Loading AI models..."):
+    with st.spinner(" Loading AI models..."):
         rf_stress, rf_happiness, le_gender, le_platform = train_models(df)
     
     col1, col2 = st.columns([1, 1])
     
     with col1:
-        st.subheader("🎯 Your Current Lifestyle")
-        st.caption("💡 Fill in how you live NOW")
+        st.subheader(" Your Current Lifestyle")
+        st.caption(" Fill in how you live NOW")
         
         current_age = st.number_input("Age", 16, 50, 30, key="future_age",
                                      help="Your current age")
@@ -963,48 +958,48 @@ def show_future_predictions(df):
                                        help="Which platform do you use most?")
         
         st.markdown("**Current Habits:**")
-        current_screen = st.slider("📱 Current Screen Time (hrs)", 1.0, 12.0, 6.0, 0.5, key="future_current_screen",
+        current_screen = st.slider(" Current Screen Time (hrs)", 1.0, 12.0, 6.0, 0.5, key="future_current_screen",
                                   help="How many hours per day do you spend on screens NOW?")
-        current_sleep = st.slider("😴 Current Sleep Quality", 1, 10, 6, key="future_current_sleep",
+        current_sleep = st.slider(" Current Sleep Quality", 1, 10, 6, key="future_current_sleep",
                                  help="How well do you sleep NOW? (1=Poor, 10=Excellent)")
-        current_exercise = st.slider("🏃 Current Exercise (times/week)", 0, 7, 2, key="future_current_exercise",
+        current_exercise = st.slider(" Current Exercise (times/week)", 0, 7, 2, key="future_current_exercise",
                                     help="How many times per week do you exercise NOW?")
-        current_breaks = st.slider("📵 Current SM Breaks (days/month)", 0, 30, 0, key="future_current_breaks",
+        current_breaks = st.slider(" Current SM Breaks (days/month)", 0, 30, 0, key="future_current_breaks",
                                   help="How many social media break days NOW?")
     
     with col2:
-        st.subheader("🚀 Your Target Goals")
-        st.caption("💡 Set your FUTURE goals - what you want to achieve!")
+        st.subheader(" Your Target Goals")
+        st.caption(" Set your FUTURE goals - what you want to achieve!")
         st.markdown("---")
         st.markdown("**What if you made these changes?**")
         
-        future_screen = st.slider("📱 Target Screen Time (hrs)", 1.0, 12.0, 4.0, 0.5, key="future_target_screen",
+        future_screen = st.slider(" Target Screen Time (hrs)", 1.0, 12.0, 4.0, 0.5, key="future_target_screen",
                                  help="Reduce screen time to this many hours")
-        future_sleep = st.slider("😴 Target Sleep Quality", 1, 10, 8, key="future_target_sleep",
+        future_sleep = st.slider(" Target Sleep Quality", 1, 10, 8, key="future_target_sleep",
                                 help="Improve sleep quality to this level")
-        future_exercise = st.slider("🏃 Target Exercise (times/week)", 0, 7, 4, key="future_target_exercise",
+        future_exercise = st.slider(" Target Exercise (times/week)", 0, 7, 4, key="future_target_exercise",
                                    help="Increase exercise to this many times per week")
-        future_breaks = st.slider("📵 Target SM Breaks (days/month)", 0, 30, 7, key="future_target_breaks",
+        future_breaks = st.slider(" Target SM Breaks (days/month)", 0, 30, 7, key="future_target_breaks",
                                  help="Take this many social media break days")
         
         # Show the changes
         st.markdown("---")
-        st.markdown("**📊 Your Proposed Changes:**")
+        st.markdown("** Your Proposed Changes:**")
         if future_screen < current_screen:
-            st.success(f"📱 Screen time: -{current_screen - future_screen:.1f} hrs/day")
+            st.success(f" Screen time: -{current_screen - future_screen:.1f} hrs/day")
         if future_sleep > current_sleep:
-            st.success(f"😴 Sleep quality: +{future_sleep - current_sleep} points")
+            st.success(f" Sleep quality: +{future_sleep - current_sleep} points")
         if future_exercise > current_exercise:
-            st.success(f"🏃 Exercise: +{future_exercise - current_exercise}x per week")
+            st.success(f" Exercise: +{future_exercise - current_exercise}x per week")
         if future_breaks > current_breaks:
-            st.success(f"📵 SM breaks: +{future_breaks - current_breaks} days/month")
+            st.success(f" SM breaks: +{future_breaks - current_breaks} days/month")
     
     st.markdown("---")
     
     # Centered predict button
     col_btn1, col_btn2, col_btn3 = st.columns([1, 2, 1])
     with col_btn2:
-        predict_button = st.button("🔮 Predict Future Impact", use_container_width=True, type="primary",
+        predict_button = st.button(" Predict Future Impact", use_container_width=True, type="primary",
                                   help="Click to see how these changes will affect your mental health!")
     
     if predict_button:
@@ -1028,7 +1023,7 @@ def show_future_predictions(df):
         happiness_change = future_happiness - current_happiness
         
         st.markdown("---")
-        st.subheader("🎯 Prediction Results")
+        st.subheader(" Prediction Results")
         
         # Comparison cards
         col_a, col_b, col_c = st.columns(3)
@@ -1052,21 +1047,21 @@ def show_future_predictions(df):
             improvement_score = (stress_change + happiness_change) / 2
             
             if improvement_score > 2:
-                st.success("🌟 **Excellent Changes!**")
+                st.success(" **Excellent Changes!**")
                 st.write(f"Overall improvement: **{improvement_score:.1f} points**")
             elif improvement_score > 1:
-                st.info("👍 **Good Changes!**")
+                st.info(" **Good Changes!**")
                 st.write(f"Overall improvement: **{improvement_score:.1f} points**")
             elif improvement_score > 0:
-                st.warning("🤔 **Modest Changes**")
+                st.warning(" **Modest Changes**")
                 st.write(f"Overall improvement: **{improvement_score:.1f} points**")
             else:
-                st.error("❌ **Changes may not help**")
+                st.error(" **Changes may not help**")
                 st.write("Consider different adjustments")
         
         # Detailed analysis
         st.markdown("---")
-        st.subheader("📊 Impact Analysis")
+        st.subheader(" Impact Analysis")
         
         col_x, col_y = st.columns(2)
         
@@ -1100,33 +1095,33 @@ def show_future_predictions(df):
         
         # Recommendations
         st.markdown("---")
-        st.subheader("💡 Personalized Action Steps")
+        st.subheader(" Personalized Action Steps")
         
         recommendations = []
         
         if future_screen < current_screen:
             time_saved = (current_screen - future_screen) * 30  # days in month
-            recommendations.append(f"📱 **Reduce screen time**: You'll save {time_saved:.0f} hours/month!")
+            recommendations.append(f" **Reduce screen time**: You'll save {time_saved:.0f} hours/month!")
         
         if future_sleep > current_sleep:
-            recommendations.append(f"😴 **Improve sleep**: Your stress could decrease by {stress_change:.1f} points")
+            recommendations.append(f" **Improve sleep**: Your stress could decrease by {stress_change:.1f} points")
         
         if future_exercise > current_exercise:
             extra_sessions = (future_exercise - current_exercise) * 4  # weeks
-            recommendations.append(f"🏃 **Exercise more**: {extra_sessions} extra sessions per month")
+            recommendations.append(f" **Exercise more**: {extra_sessions} extra sessions per month")
         
         if future_breaks > current_breaks:
-            recommendations.append(f"📵 **Take more breaks**: {future_breaks} detox days per month")
+            recommendations.append(f" **Take more breaks**: {future_breaks} detox days per month")
         
         for i, rec in enumerate(recommendations, 1):
             st.markdown(f"<div class='insight-box'>{i}. {rec}</div>", unsafe_allow_html=True)
         
         if stress_change > 2 or happiness_change > 2:
-            st.success("🎯 **High Impact Changes!** These modifications could significantly improve your mental health!")
+            st.success(" **High Impact Changes!** These modifications could significantly improve your mental health!")
         
         # Timeline
         st.markdown("---")
-        st.subheader("📅 Expected Timeline")
+        st.subheader(" Expected Timeline")
         
         timeline_data = {
             'Week': ['Week 1', 'Week 2', 'Week 3', 'Week 4'],
@@ -1158,19 +1153,19 @@ def show_future_predictions(df):
                         height=350)
         st.plotly_chart(fig, use_container_width=True)
         
-        st.info("📝 **Note**: These are AI-generated predictions based on statistical models. Individual results may vary. Consistency is key!")
+        st.info(" **Note**: These are AI-generated predictions based on statistical models. Individual results may vary. Consistency is key!")
 
 def show_insights():
-    st.header("💡 Key Insights & Recommendations")
+    st.header(" Key Insights & Recommendations")
     
     col1, col2 = st.columns([2, 1])
     
     with col1:
-        st.subheader("🔍 Major Findings")
+        st.subheader(" Major Findings")
         
         st.markdown("""
         <div class="insight-box">
-            <h4>1. Screen Time is the Critical Factor 🚨</h4>
+            <h4>1. Screen Time is the Critical Factor </h4>
             <ul>
                 <li><strong>0.74 correlation</strong> with stress (extremely strong)</li>
                 <li><strong>90x more important</strong> than social media abstinence</li>
@@ -1179,7 +1174,7 @@ def show_insights():
         </div>
         
         <div class="insight-box">
-            <h4>2. Two Distinct User Phenotypes 👥</h4>
+            <h4>2. Two Distinct User Phenotypes </h4>
             <ul>
                 <li><strong>Cluster 0 (High-stress):</strong> 6.85hrs screen time, poor sleep (5.22/10), stress 7.74/10</li>
                 <li><strong>Cluster 1 (Well-balanced):</strong> 4.29hrs screen time, good sleep (7.32/10), stress 5.57/10</li>
@@ -1188,7 +1183,7 @@ def show_insights():
         </div>
         
         <div class="insight-box">
-            <h4>3. Sleep Quality Matters Significantly 😴</h4>
+            <h4>3. Sleep Quality Matters Significantly </h4>
             <ul>
                 <li><strong>-59%</strong> correlation with stress</li>
                 <li><strong>+68%</strong> correlation with happiness</li>
@@ -1197,7 +1192,7 @@ def show_insights():
         </div>
         
         <div class="insight-box">
-            <h4>4. Social Media Abstinence Has Minimal Direct Effect 📱</h4>
+            <h4>4. Social Media Abstinence Has Minimal Direct Effect </h4>
             <ul>
                 <li>Only <strong>-0.8%</strong> correlation with stress</li>
                 <li>Only <strong>+6.4%</strong> correlation with happiness</li>
@@ -1208,29 +1203,29 @@ def show_insights():
         """, unsafe_allow_html=True)
     
     with col2:
-        st.subheader("🎯 Action Plan")
+        st.subheader(" Action Plan")
         
         st.markdown("""
         ### Daily Habits
         - ⏰ Limit screen time to 4-5 hours
-        - 😴 Get 7-8 hours quality sleep
-        - 🏃 Exercise 3-4 times/week
-        - 🧘 Practice digital detox (1 day/week)
+        -  Get 7-8 hours quality sleep
+        -  Exercise 3-4 times/week
+        -  Practice digital detox (1 day/week)
         
         ### Mental Health Tracking
-        - 📊 Monitor stress levels
-        - 😊 Track happiness daily
-        - 📈 Review progress weekly
+        -  Monitor stress levels
+        -  Track happiness daily
+        -  Review progress weekly
         
         ### Intervention Strategies
-        - 🔔 Set screen time limits
-        - 🌙 Establish sleep routine
-        - 🤝 Increase social interaction
-        - 🎯 Set realistic goals
+        -  Set screen time limits
+        -  Establish sleep routine
+        -  Increase social interaction
+        -  Set realistic goals
         """)
         
         st.markdown("---")
-        st.info("💡 **Remember**: Mental health is multifaceted. A holistic approach addressing screen time, sleep, exercise, and social connections is most effective!")
+        st.info(" **Remember**: Mental health is multifaceted. A holistic approach addressing screen time, sleep, exercise, and social connections is most effective!")
 
 if __name__ == "__main__":
     main()

@@ -59,20 +59,20 @@ print("="*70)
 # Load the dataset
 df = pd.read_csv(r'c:\Users\RANJITH S\Downloads\archive (3)\Mental_Health_and_Social_Media_Balance_Dataset.csv')
 
-print(f"\n🔍 Dataset Overview:")
+print(f"\n Dataset Overview:")
 print(f"Shape: {df.shape}")
 print(f"Columns: {list(df.columns)}")
 
-print("\n📊 Data Types:")
+print("\n Data Types:")
 print(df.dtypes)
 
-print("\n🔍 First 5 rows:")
+print("\n First 5 rows:")
 print(df.head())
 
-print("\n📈 Basic Statistics:")
+print("\n Basic Statistics:")
 print(df.describe())
 
-print("\n❓ Missing Values:")
+print("\n Missing Values:")
 missing_values = df.isnull().sum()
 if missing_values.sum() == 0:
     print("No missing values found!")
@@ -80,7 +80,7 @@ else:
     print(missing_values)
 
 # Data preprocessing
-print("\n🛠️ Data Preprocessing:")
+print("\n Data Preprocessing:")
 
 # Convert categorical columns
 categorical_cols = ['Gender', 'Social_Media_Platform']
@@ -93,14 +93,14 @@ initial_shape = df.shape
 df.drop_duplicates(inplace=True)
 print(f"Removed {initial_shape[0] - df.shape[0]} duplicate rows")
 
-print(f"\n✅ Final dataset shape: {df.shape}")
-print("✅ Phase 1 Complete!")
+print(f"\n Final dataset shape: {df.shape}")
+print(" Phase 1 Complete!")
 
 # =============================================================================
 # PHASE 2: EXPLORATORY DATA ANALYSIS (EDA)
 # =============================================================================
 print("\n" + "="*70)
-print("📊 PHASE 2: EXPLORATORY DATA ANALYSIS")
+print(" PHASE 2: EXPLORATORY DATA ANALYSIS")
 print("="*70)
 
 # 2.1 Distribution Analysis
@@ -125,7 +125,7 @@ fig.delaxes(axes[1, 3])
 
 plt.tight_layout()
 plt.savefig('results/01_distributions.png', dpi=300, bbox_inches='tight')
-print("✅ Saved: results/01_distributions.png")
+print(" Saved: results/01_distributions.png")
 plt.close()
 
 # 2.2 Categorical Variables Analysis
@@ -150,16 +150,16 @@ if 'Social_Media_Platform' in df.columns:
 
 plt.tight_layout()
 plt.savefig('results/02_categorical_distributions.png', dpi=300, bbox_inches='tight')
-print("✅ Saved: results/02_categorical_distributions.png")
+print(" Saved: results/02_categorical_distributions.png")
 plt.close()
 
-print("✅ Phase 2 Complete!")
+print(" Phase 2 Complete!")
 
 # =============================================================================
 # PHASE 3: CORRELATION ANALYSIS
 # =============================================================================
 print("\n" + "="*70)
-print("🔗 PHASE 3: CORRELATION ANALYSIS")
+print(" PHASE 3: CORRELATION ANALYSIS")
 print("="*70)
 
 # Calculate correlations between numerical variables
@@ -173,28 +173,28 @@ sns.heatmap(correlation_matrix, annot=True, cmap='coolwarm', center=0,
 plt.title('Correlation Matrix: All Numerical Features', fontsize=14, fontweight='bold')
 plt.tight_layout()
 plt.savefig('results/03_correlation_heatmap.png', dpi=300, bbox_inches='tight')
-print("✅ Saved: results/03_correlation_heatmap.png")
+print(" Saved: results/03_correlation_heatmap.png")
 plt.close()
 
 # Focus on Key Relationships
-print("\n🎯 Key Correlations with Mental Health Outcomes:")
+print("\n Key Correlations with Mental Health Outcomes:")
 
 # Stress Level correlations
 stress_correlations = correlation_matrix['Stress_Level(1-10)'].sort_values(ascending=False)
-print("\n📉 Correlations with Stress Level:")
+print("\n Correlations with Stress Level:")
 for var, corr in stress_correlations.items():
     if var != 'Stress_Level(1-10)':
         print(f"  {var}: {corr:.4f}")
 
 # Happiness Index correlations
 happiness_correlations = correlation_matrix['Happiness_Index(1-10)'].sort_values(ascending=False)
-print("\n😊 Correlations with Happiness Index:")
+print("\n Correlations with Happiness Index:")
 for var, corr in happiness_correlations.items():
     if var != 'Happiness_Index(1-10)':
         print(f"  {var}: {corr:.4f}")
 
 # Statistical Significance Testing
-print("\n📈 Statistical Significance Tests:")
+print("\n Statistical Significance Tests:")
 
 # Test correlation between Days Without Social Media and Stress
 stress_corr, stress_p = pearsonr(df['Days_Without_Social_Media'], df['Stress_Level(1-10)'])
@@ -211,13 +211,13 @@ screen_stress_corr, screen_stress_p = pearsonr(df['Daily_Screen_Time(hrs)'], df[
 print(f"\nDaily Screen Time vs Stress Level:")
 print(f"  Pearson r: {screen_stress_corr:.4f} (p-value: {screen_stress_p:.4e})")
 
-print("\n✅ Phase 3 Complete!")
+print("\n Phase 3 Complete!")
 
 # =============================================================================
 # PHASE 4: REGRESSION ANALYSIS
 # =============================================================================
 print("\n" + "="*70)
-print("📈 PHASE 4: REGRESSION ANALYSIS")
+print(" PHASE 4: REGRESSION ANALYSIS")
 print("="*70)
 
 X = df[['Days_Without_Social_Media']]
@@ -229,8 +229,8 @@ lr_stress = LinearRegression()
 lr_stress.fit(X, y_stress)
 stress_pred = lr_stress.predict(X)
 
-print("\n🔬 Simple Linear Regression Results:")
-print(f"\n📉 Stress Model:")
+print("\n Simple Linear Regression Results:")
+print(f"\n Stress Model:")
 print(f"  Coefficient: {lr_stress.coef_[0]:.4f}")
 print(f"  Intercept: {lr_stress.intercept_:.4f}")
 print(f"  R² Score: {r2_score(y_stress, stress_pred):.4f}")
@@ -242,7 +242,7 @@ lr_happiness = LinearRegression()
 lr_happiness.fit(X, y_happiness)
 happiness_pred = lr_happiness.predict(X)
 
-print(f"\n😊 Happiness Model:")
+print(f"\n Happiness Model:")
 print(f"  Coefficient: {lr_happiness.coef_[0]:.4f}")
 print(f"  Intercept: {lr_happiness.intercept_:.4f}")
 print(f"  R² Score: {r2_score(y_happiness, happiness_pred):.4f}")
@@ -250,7 +250,7 @@ print(f"  MAE: {mean_absolute_error(y_happiness, happiness_pred):.4f}")
 print(f"  RMSE: {np.sqrt(mean_squared_error(y_happiness, happiness_pred)):.4f}")
 
 # Multiple Regression with Control Variables
-print("\n🔬 Multiple Regression (with confounders):")
+print("\n Multiple Regression (with confounders):")
 
 features = ['Days_Without_Social_Media', 'Daily_Screen_Time(hrs)', 'Sleep_Quality(1-10)', 
            'Exercise_Frequency(week)', 'Age']
@@ -260,7 +260,7 @@ X_multi_with_const = sm.add_constant(X_multi)
 
 # Stress Model
 model_stress_multi = sm.OLS(y_stress, X_multi_with_const).fit()
-print("\n📉 Multiple Regression - Stress Level:")
+print("\n Multiple Regression - Stress Level:")
 print(f"  R² Score: {model_stress_multi.rsquared:.4f}")
 print(f"  Adjusted R²: {model_stress_multi.rsquared_adj:.4f}")
 print(f"  F-statistic: {model_stress_multi.fvalue:.4f}")
@@ -268,7 +268,7 @@ print(f"  p-value: {model_stress_multi.f_pvalue:.4e}")
 
 # Happiness Model
 model_happiness_multi = sm.OLS(y_happiness, X_multi_with_const).fit()
-print("\n😊 Multiple Regression - Happiness Index:")
+print("\n Multiple Regression - Happiness Index:")
 print(f"  R² Score: {model_happiness_multi.rsquared:.4f}")
 print(f"  Adjusted R²: {model_happiness_multi.rsquared_adj:.4f}")
 print(f"  F-statistic: {model_happiness_multi.fvalue:.4f}")
@@ -301,16 +301,16 @@ axes[1].grid(True, alpha=0.3)
 
 plt.tight_layout()
 plt.savefig('results/04_regression_results.png', dpi=300, bbox_inches='tight')
-print("\n✅ Saved: results/04_regression_results.png")
+print("\n Saved: results/04_regression_results.png")
 plt.close()
 
-print("✅ Phase 4 Complete!")
+print(" Phase 4 Complete!")
 
 # =============================================================================
 # PHASE 5: USER SEGMENTATION (CLUSTERING)
 # =============================================================================
 print("\n" + "="*70)
-print("🎯 PHASE 5: USER SEGMENTATION (CLUSTERING)")
+print(" PHASE 5: USER SEGMENTATION (CLUSTERING)")
 print("="*70)
 
 # Prepare Data for Clustering
@@ -331,7 +331,7 @@ inertias = []
 silhouette_scores = []
 K_range = range(2, 11)
 
-print("\n🔍 Finding optimal number of clusters...")
+print("\n Finding optimal number of clusters...")
 for k in K_range:
     kmeans = KMeans(n_clusters=k, random_state=42, n_init=10)
     kmeans.fit(X_scaled)
@@ -355,19 +355,19 @@ axes[1].grid(True, alpha=0.3)
 
 plt.tight_layout()
 plt.savefig('results/05_clustering_optimization.png', dpi=300, bbox_inches='tight')
-print("✅ Saved: results/05_clustering_optimization.png")
+print(" Saved: results/05_clustering_optimization.png")
 plt.close()
 
 # Optimal K selection
 optimal_k = K_range[np.argmax(silhouette_scores)]
-print(f"\n✨ Optimal number of clusters: {optimal_k}")
-print(f"✨ Best silhouette score: {max(silhouette_scores):.4f}")
+print(f"\n Optimal number of clusters: {optimal_k}")
+print(f" Best silhouette score: {max(silhouette_scores):.4f}")
 
 # Apply K-Means with Optimal K
 kmeans_final = KMeans(n_clusters=optimal_k, random_state=42, n_init=10)
 df['Cluster_KMeans'] = kmeans_final.fit_predict(X_scaled)
 
-print(f"\n📊 Cluster distribution:")
+print(f"\n Cluster distribution:")
 print(df['Cluster_KMeans'].value_counts().sort_index())
 
 # Cluster Profiling
@@ -394,7 +394,7 @@ plt.title('K-Means Clustering: PCA Visualization', fontsize=14, fontweight='bold
 plt.colorbar(scatter, label='Cluster')
 plt.grid(True, alpha=0.3)
 plt.savefig('results/06_kmeans_clusters.png', dpi=300, bbox_inches='tight')
-print("\n✅ Saved: results/06_kmeans_clusters.png")
+print("\n Saved: results/06_kmeans_clusters.png")
 plt.close()
 
 # DBSCAN Clustering
@@ -405,7 +405,7 @@ print('='*70)
 dbscan = DBSCAN(eps=0.8, min_samples=5)
 df['Cluster_DBSCAN'] = dbscan.fit_predict(X_scaled)
 
-print(f"\n📊 DBSCAN Cluster distribution:")
+print(f"\n DBSCAN Cluster distribution:")
 n_clusters = len(set(df['Cluster_DBSCAN'])) - (1 if -1 in df['Cluster_DBSCAN'] else 0)
 n_noise = sum(df['Cluster_DBSCAN'] == -1)
 print(f"Number of clusters: {n_clusters}")
@@ -423,16 +423,16 @@ plt.title('DBSCAN Clustering: PCA Visualization', fontsize=14, fontweight='bold'
 plt.colorbar(scatter, label='Cluster (-1 = Noise)')
 plt.grid(True, alpha=0.3)
 plt.savefig('results/07_dbscan_clusters.png', dpi=300, bbox_inches='tight')
-print("✅ Saved: results/07_dbscan_clusters.png")
+print(" Saved: results/07_dbscan_clusters.png")
 plt.close()
 
-print("\n✅ Phase 5 Complete!")
+print("\n Phase 5 Complete!")
 
 # =============================================================================
 # PHASE 6: ADVANCED MODELING (RANDOM FOREST)
 # =============================================================================
 print("\n" + "="*70)
-print("🧠 PHASE 6: ADVANCED MODELING (RANDOM FOREST)")
+print(" PHASE 6: ADVANCED MODELING (RANDOM FOREST)")
 print("="*70)
 
 # Encode categorical variables
@@ -460,13 +460,13 @@ X_train, X_test, y_train_stress, y_test_stress = train_test_split(X, y_stress, t
 X_train_h, X_test_h, y_train_happiness, y_test_happiness = train_test_split(X, y_happiness, test_size=0.2, random_state=42)
 
 # Stress Model
-print("\n🔨 Training Random Forest models...")
+print("\n Training Random Forest models...")
 rf_stress = RandomForestRegressor(n_estimators=100, random_state=42, n_jobs=-1)
 rf_stress.fit(X_train, y_train_stress)
 rf_stress_pred = rf_stress.predict(X_test)
 
-print("\n📊 Random Forest Results:")
-print(f"\n📉 Stress Level Prediction:")
+print("\n Random Forest Results:")
+print(f"\n Stress Level Prediction:")
 print(f"  R² Score: {r2_score(y_test_stress, rf_stress_pred):.4f}")
 print(f"  MAE: {mean_absolute_error(y_test_stress, rf_stress_pred):.4f}")
 print(f"  RMSE: {np.sqrt(mean_squared_error(y_test_stress, rf_stress_pred)):.4f}")
@@ -476,7 +476,7 @@ rf_happiness = RandomForestRegressor(n_estimators=100, random_state=42, n_jobs=-
 rf_happiness.fit(X_train_h, y_train_happiness)
 rf_happiness_pred = rf_happiness.predict(X_test_h)
 
-print(f"\n😊 Happiness Index Prediction:")
+print(f"\n Happiness Index Prediction:")
 print(f"  R² Score: {r2_score(y_test_happiness, rf_happiness_pred):.4f}")
 print(f"  MAE: {mean_absolute_error(y_test_happiness, rf_happiness_pred):.4f}")
 print(f"  RMSE: {np.sqrt(mean_squared_error(y_test_happiness, rf_happiness_pred)):.4f}")
@@ -506,7 +506,7 @@ axes[1].set_xlabel('Importance')
 
 plt.tight_layout()
 plt.savefig('results/08_feature_importance.png', dpi=300, bbox_inches='tight')
-print("\n✅ Saved: results/08_feature_importance.png")
+print("\n Saved: results/08_feature_importance.png")
 plt.close()
 
 # Model Performance Visualization
@@ -532,16 +532,16 @@ axes[1].grid(True, alpha=0.3)
 
 plt.tight_layout()
 plt.savefig('results/09_rf_predictions.png', dpi=300, bbox_inches='tight')
-print("✅ Saved: results/09_rf_predictions.png")
+print(" Saved: results/09_rf_predictions.png")
 plt.close()
 
-print("\n✅ Phase 6 Complete!")
+print("\n Phase 6 Complete!")
 
 # =============================================================================
 # PHASE 7: COMPREHENSIVE RESULTS SUMMARY
 # =============================================================================
 print("\n" + "="*70)
-print("📊 PHASE 7: COMPREHENSIVE RESULTS SUMMARY")
+print(" PHASE 7: COMPREHENSIVE RESULTS SUMMARY")
 print("="*70)
 
 results_summary = {
@@ -588,40 +588,40 @@ print("\n" + results_df.to_string(index=False))
 
 # Save results
 results_df.to_csv('results/final_results_summary.csv', index=False)
-print("\n✅ Saved: results/final_results_summary.csv")
+print("\n Saved: results/final_results_summary.csv")
 
 # Key Insights
 print(f"\n{'='*70}")
-print("🎯 KEY INSIGHTS & FINDINGS")
+print(" KEY INSIGHTS & FINDINGS")
 print('='*70)
 
-print("\n1️⃣ CORRELATION ANALYSIS:")
+print("\n1⃣ CORRELATION ANALYSIS:")
 print(f"   • Days without social media shows {abs(stress_corr):.3f} correlation with stress levels")
 print(f"   • Days without social media shows {abs(happiness_corr):.3f} correlation with happiness")
 print(f"   • Screen time shows {abs(screen_stress_corr):.3f} correlation with stress")
 
-print("\n2️⃣ PREDICTIVE MODELING:")
+print("\n2⃣ PREDICTIVE MODELING:")
 print(f"   • Random Forest achieves {r2_score(y_test_stress, rf_stress_pred):.1%} accuracy for stress prediction")
 print(f"   • Random Forest achieves {r2_score(y_test_happiness, rf_happiness_pred):.1%} accuracy for happiness prediction")
 print(f"   • Mean Absolute Error (Stress): {mean_absolute_error(y_test_stress, rf_stress_pred):.2f} points")
 print(f"   • Mean Absolute Error (Happiness): {mean_absolute_error(y_test_happiness, rf_happiness_pred):.2f} points")
 
-print("\n3️⃣ USER SEGMENTATION:")
+print("\n3⃣ USER SEGMENTATION:")
 print(f"   • Identified {optimal_k} distinct user clusters")
 print(f"   • Silhouette score of {max(silhouette_scores):.3f} indicates good cluster separation")
 print(f"   • Most important predictor for stress: {stress_importance.iloc[-1]['feature']}")
 print(f"   • Most important predictor for happiness: {happiness_importance.iloc[-1]['feature']}")
 
-print("\n4️⃣ PRACTICAL IMPLICATIONS:")
+print("\n4⃣ PRACTICAL IMPLICATIONS:")
 if stress_corr < 0:
-    print("   ✅ Social media abstinence is associated with REDUCED stress levels")
+    print("    Social media abstinence is associated with REDUCED stress levels")
 else:
-    print("   ⚠️  Social media abstinence is associated with INCREASED stress levels")
+    print("     Social media abstinence is associated with INCREASED stress levels")
 
 if happiness_corr > 0:
-    print("   ✅ Social media abstinence is associated with INCREASED happiness")
+    print("    Social media abstinence is associated with INCREASED happiness")
 else:
-    print("   ⚠️  Social media abstinence is associated with DECREASED happiness")
+    print("     Social media abstinence is associated with DECREASED happiness")
 
 print("   • Sleep quality and exercise are strong protective factors")
 print("   • Personalized interventions should consider individual user phenotypes")
@@ -629,14 +629,14 @@ print("   • Multiple factors influence mental health outcomes simultaneously")
 
 # Save Processed Dataset
 df.to_csv('results/processed_dataset_with_clusters.csv', index=False)
-print("\n✅ Saved: results/processed_dataset_with_clusters.csv")
+print("\n Saved: results/processed_dataset_with_clusters.csv")
 
 print("\n" + "="*70)
-print("🎉 ANALYSIS COMPLETE!")
+print(" ANALYSIS COMPLETE!")
 print("="*70)
-print("\n📁 All results saved to 'results/' directory:")
+print("\n All results saved to 'results/' directory:")
 print("   • 9 high-quality visualizations (PNG files)")
 print("   • Final results summary (CSV)")
 print("   • Processed dataset with cluster assignments (CSV)")
-print("\n🚀 Your Social Media Detox Effect Analyzer is ready for portfolio presentation!")
+print("\n Your Social Media Detox Effect Analyzer is ready for portfolio presentation!")
 print("="*70)
